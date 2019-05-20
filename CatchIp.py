@@ -7,12 +7,19 @@ from pathlib import Path
 import config
 
 
+file_path = ''
+
+
 def main():
-    config.init()
-    ip_file_exists = Path('external_ip.txt')
+    if len(sys.argv) > 1:
+        global file_path
+        file_path = sys.argv[1]
+        print(file_path)
+    config.init(file_path)
+    ip_file_exists = Path(file_path + 'external_ip.txt')
 
     if ip_file_exists.is_file():
-        f = open("external_ip.txt", "r")
+        f = open(file_path + "external_ip.txt", "r")
         prev_ip = f.read()
         f.close()
         if prev_ip != get_ip():
@@ -27,7 +34,7 @@ def main():
 
 
 def update_ip():
-    f = open("external_ip.txt", "w")
+    f = open(file_path + "external_ip.txt", "w")
     f.write(get_ip())
     f.close()
 
