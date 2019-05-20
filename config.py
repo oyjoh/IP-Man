@@ -3,10 +3,6 @@ from pathlib import Path
 EMAIL_ADDRESS = ""
 PASSWORD = ""
 
-
-# bot.johannessen@gmail.com
-# kiqzo4-nybFek-muwjeq
-
 def init():
     ip_file_exists = Path('email_login.txt')
 
