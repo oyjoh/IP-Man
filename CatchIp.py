@@ -17,13 +17,19 @@ def main():
         f.close()
         if prev_ip != get_ip():
             send_ip()
+            update_ip()
         else:
+            print("no changes to external ip")
             sys.exit(2)
     else:
-        f = open("external_ip.txt", "w")
-        f.write(get_ip())
-        f.close()
+        update_ip()
         send_ip()
+
+
+def update_ip():
+    f = open("external_ip.txt", "w")
+    f.write(get_ip())
+    f.close()
 
 
 def get_ip():
