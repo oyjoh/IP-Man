@@ -301,4 +301,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# this project only. protects email login and external ip
+*.txt
+
 # End of https://www.gitignore.io/api/git,macos,python,pycharm,pycharm+iml
