@@ -1,7 +1,7 @@
+#!/bin/env python
 import smtplib
 import sys
 import urllib.request
-import os
 from pathlib import Path
 
 import config
