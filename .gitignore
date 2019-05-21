@@ -1,5 +1,6 @@
-# Created by https://www.gitignore.io/api/git,macos,python,pycharm,pycharm+iml
-# Edit at https://www.gitignore.io/?templates=git,macos,python,pycharm,pycharm+iml
+### IMPORTANT ###
+# Protects email login and external ip
+*.txt
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -300,8 +301,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# this project only. protects email login and external ip
-*.txt
-
-# End of https://www.gitignore.io/api/git,macos,python,pycharm,pycharm+iml
