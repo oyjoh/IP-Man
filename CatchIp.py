@@ -2,9 +2,9 @@
 import smtplib
 import sys
 import urllib.request
-from pathlib import Path
-
 import config
+from datetime import datetime
+from pathlib import Path
 
 
 file_path = ''
@@ -14,9 +14,12 @@ def main():
     if len(sys.argv) > 1:
         global file_path
         file_path = sys.argv[1]
-        print(file_path)
+        # print(file_path)
     config.init(file_path)
     ip_file_exists = Path(file_path + 'external_ip.txt')
+
+    now = datetime.now()
+    print("Timestamp: ", now)
 
     if ip_file_exists.is_file():
         f = open(file_path + "external_ip.txt", "r")
@@ -26,7 +29,7 @@ def main():
             send_ip()
             update_ip()
         else:
-            print("no changes to external ip")
+            print("Status: no changes to external ip")
             sys.exit(2)
     else:
         update_ip()
@@ -57,9 +60,9 @@ def send_email(subject, msg):
         message = 'subject: {}\n\n{}'.format(subject, msg)
         server.sendmail(config.EMAIL_ADDRESS, config.EMAIL_ADDRESS, message)
         server.quit()
-        print("email sent")
+        print("Status: email sent")
     except:
-        print("error")
+        print("Status: error")
 
 
 if __name__ == "__main__":
