@@ -18,7 +18,7 @@ def main():
     config.init(file_path)
     ip_file_exists = Path(file_path + 'external_ip.txt')
 
-    now = datetime.now()
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print("Timestamp: ", now)
 
     if ip_file_exists.is_file():
